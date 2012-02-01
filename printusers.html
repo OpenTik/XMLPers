@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Template parser test</title>
+</head>
+<body>
+<table>
+<tr>
+<td>Login</td>
+<td>Password</td>
+<td>IP</td>
+<td>MAC</td>
+</tr>
+<foreach node="system.config.users">
+<tr>
+<makevar var="login" expression="gettext('$ROOT$.system.config.users.$CURRENT$.login')">
+<makevar var="password" expression="gettext('$ROOT$.system.config.users.$CURRENT$.password')">
+<makevar var="ip" expression="gettext('$ROOT$.system.config.users.$CURRENT$.ip')">
+<makevar var="mac" expression="gettext('$ROOT$.system.config.users.$CURRENT$.mac')">
+<td>{$login$}</td>
+<td>{$password$}</td>
+<td>{$ip$}</td>
+<td>{$mac$}</td>
+</tr>
+</foreach>
+</table>
+</body>
+</html>

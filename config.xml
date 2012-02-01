@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<system>
+	<config>
+		<filesystems>
+			<filesystem>
+				<name>proc</name>
+				<type>proc</type>
+				<device>none</device>
+				<point>/proc</point>
+				<options>defaults,remount</options>
+				<dump>0</dump>
+				<fsckorder>0</fsckorder>
+			</filesystem>
+			<filesystem>
+				<name>udev</name>
+				<type>devtmpfs</type>
+				<device>udev</device>
+				<point>/dev</point>
+				<options>mode=0755,size=10M,nosuid,remount</options>
+				<dump>0</dump>
+				<fsckorder>0</fsckorder>
+			</filesystem>
+			<filesystem>
+				<name>root</name>
+				<type>ext4</type>
+				<device> /dev/sda1</device>
+				<point>/</point>
+				<options>acl,relatime,rw,remount</options>
+				<dump>1</dump>
+				<fsckorder>1</fsckorder>
+			</filesystem>
+			<swap>/dev/sda5</swap>
+		</filesystems>
+		<users>
+			<user>
+				<name>test</name>
+				<login>test</login>
+				<password>test</password>
+				<isdhcpdclient>true</isdhcpdclient>
+			</user>
+		</users>
+	</config>
+	<scripts>
+	</scripts>
+</system>
